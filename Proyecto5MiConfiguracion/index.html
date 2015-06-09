@@ -1,0 +1,35 @@
+<html>
+    <head>
+        
+        <tittle></tittle>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="estilos.css" type="text/css">
+    </head>
+
+    <body>
+        <div id="inicio">
+            <h1>BANG¡</h1>
+        
+            <button onclick="jugar('tres')">Tres de Tres</button>
+            <button onclick="jugar('cinco')">Cinco de Cinco</button>
+            <button onclick="jugar('infinito')">Infinito</button>
+        </div>
+    </body>
+    
+    <script>
+        function jugar(tipo){
+            if (tipo=="tres"){
+                window.location.assign('tres.html')
+            }
+            if (tipo=="cinco"){
+                window.location.assign('cinco.html')
+
+            }
+            if (tipo=="infinito"){
+                window.location.assign('infinito.html')                
+            }
+        }
+    </script>
+    
+</html>
