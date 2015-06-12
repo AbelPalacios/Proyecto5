@@ -6,9 +6,20 @@ contadorV2 = 0;
 var banderav1;
 var banderav2;
 var dosInvalidos="no";
-
+var myVar = "";
+var myVar2 = "";
+var myVar3 = "";
+var anticipados = 0;
 function disparo(jugador){
-    
+    if(anticipados == 1){
+     clearTimeout(myVar);
+     clearTimeout(myVar2);
+      clearTimeout(myVar3);
+    document.getElementById('mensaje').innerHTML="<button onclick='reset(\""+jugador+"\")'>De nuevo</button>";
+    anticipados = 0;
+    }else{
+    anticipados++;
+    }
     if(valido == "si"){
         //alert('gano el jugador '+jugador);
         if(jugador == "v1"){
@@ -32,23 +43,7 @@ function disparo(jugador){
     }else{       
         //Disparo invalido
         document.getElementById(jugador).removeAttribute("onclick");
-        document.getElementById(jugador).style.opacity=".4";
-        
-        //conteo
-        if (jugador=="v1"){banderav1=1}
-        if (jugador=="v2"){banderav2=1}
-        dosInvalidos="no";
-        
-        if (banderav1==1 && banderav2==1){
-            banderav1=0
-            banderav2=0
-            dosInvalidos="si"
-            alert("Entreo a la dos banderas");
-            
-            document.getElementById('mensaje').innerHTML="<button onclick='reset(\""+jugador+"\")' style='position:absolute'>De nuevo</button>";
-        }
-        
-        
+        document.getElementById(jugador).style.opacity=".4";  
     }
     verLimite();
 }
@@ -56,16 +51,16 @@ function disparo(jugador){
 function contadorMensaje(){
     mensaje = document.getElementById('mensaje');
     //primer mensaje despues de 1 segundo
-    setTimeout(function(){
+    myVar= setTimeout(function(){
         mensaje.innerHTML="En sus marcas"
         //segundo mensaje despues de 2
-        setTimeout(function(){
+       myVar2 = setTimeout(function(){
             mensaje.innerHTML="Listos"
             //tercer mensaje random
             tiempoRandom = Math.floor((Math.random() * 10) + 1);
             tiempoRandom = tiempoRandom + '000';
             //console.log(tiempoRandom);
-            setTimeout(function(){
+           myVar3 = setTimeout(function(){
                 mensaje.innerHTML="Fuera"
                 //el disparo es valido
                 valido = "si";                     
